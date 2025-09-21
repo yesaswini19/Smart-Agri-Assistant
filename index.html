@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Agri Assistant</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f9fdf6;
+      color: #333;
+    }
+    header {
+      background: #2e7d32;
+      color: white;
+      padding: 1rem 2rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    nav {
+      margin-top: 0.5rem;
+    }
+    nav button {
+      background: #ffffff22;
+      border: 1px solid white;
+      color: white;
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    nav button:hover {
+      background: white;
+      color: #2e7d32;
+    }
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: white;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin-bottom: 0.5rem;
+    }
+    .btn {
+      display: inline-block;
+      background: #2e7d32;
+      color: white;
+      padding: 0.6rem 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-top: 0.8rem;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #1b5e20;
+    }
+    footer {
+      text-align: center;
+      background: #2e7d32;
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+    /* Farmer Interface */
+    .farmer-interface {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: #e8f5e9;
+      border-radius: 10px;
+    }
+    .farmer-interface h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .input-section {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    input, select, textarea {
+      padding: 0.8rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+    }
+    .output-box {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #fff;
+      min-height: 100px;
+      border: 1px dashed #aaa;
+      white-space: pre-line;
+    }
+    /* Contact section */
+    .contact {
+      margin-top: 3rem;
+      padding: 1.5rem;
+      background: #f1f8e9;
+      border-radius: 10px;
+    }
+    .contact h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌱 Smart Agri Assistant</h1>
+    <nav>
+      <button onclick="scrollToSection('top')">Home</button>
+      <button onclick="scrollToSection('features')">Features</button>
+      <button onclick="scrollToSection('contact')">Contact</button>
+    </nav>
+  </header>
+
+  <div class="container" id="top">
+    <div class="hero">
+      <h2>AI-powered Decision Support for Farmers</h2>
+      <p>Get crop recommendations, soil analysis, and market insights in your own language.</p>
+      <button class="btn" onclick="scrollToSection('farmerInterface')">
+        Try Prototype
+      </button>
+    </div>
+
+    <div class="features" id="features">
+      <div class="card">
+        <h3>🌍 Localized Advice</h3>
+        <p>Receive recommendations based on soil, weather & crop history.</p>
+        <button class="btn" onclick="featureAction('advice')">Try Advice</button>
+      </div>
+      <div class="card">
+        <h3>📸 Image Support</h3>
+        <p>Upload crop images for disease detection & remedies.</p>
+        <button class="btn" onclick="featureAction('image')">Upload Image</button>
+      </div>
+      <div class="card">
+        <h3>🎤 Voice & Chat</h3>
+        <p>Ask questions in your local language via voice or chat.</p>
+        <button class="btn" onclick="featureAction('voice')">Try Voice</button>
+      </div>
+      <div class="card">
+        <h3>📊 Market Insights</h3>
+        <p>Get real-time crop prices & demand trends.</p>
+        <button class="btn" onclick="featureAction('market')">View Market</button>
+      </div>
+    </div>
+
+    <div class="farmer-interface" id="farmerInterface">
+      <h2>Farmer Query Interface</h2>
+      <div class="input-section">
+        <select id="language">
+          <option>Select Language</option>
+          <option>English</option>
+          <option>Telugu</option>
+          <option>Hindi</option>
+        </select>
+        <textarea id="question" placeholder="Type your question (e.g., Best crop for my soil today?)"></textarea>
+        <input type="file" accept="image/*" id="imageInput"/>
+        <button class="btn" onclick="generateResponse()">Get Advice</button>
+      </div>
+      <div class="output-box" id="outputBox">
+        Results will appear here...
+      </div>
+    </div>
+
+    <div class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your Name" required><br><br>
+        <input type="email" placeholder="Your Email" required><br><br>
+        <textarea placeholder="Your Message" required></textarea><br><br>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <div id="contactMsg"></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Smart Agri Assistant | Powered by Generative AI
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+    }
+
+    function generateResponse() {
+      const lang = document.getElementById("language").value;
+      const question = document.getElementById("question").value;
+      let response = "📢 Suggested Crop: Rice\n🌦️ Weather: Moderate Rain\n💰 Market Demand: High\n✅ Profit Margin: 18% Expected";
+
+      if (lang === "Telugu") {
+        response = "📢 సిఫారసు చేసిన పంట: బియ్యం\n🌦️ వాతావరణం: మోస్తరు వర్షం\n💰 మార్కెట్ డిమాండ్: ఎక్కువ\n✅ లాభం: 18%";
+      } else if (lang === "Hindi") {
+        response = "📢 सुझाई गई फसल: धान\n🌦️ मौसम: मध्यम बारिश\n💰 बाज़ार की मांग: अधिक\n✅ लाभ: 18%";
+      }
+
+      document.getElementById("outputBox").innerText = response + "\n\n📝 Question: " + question;
+    }
+
+    function submitContact(event) {
+      event.preventDefault();
+      document.getElementById("contactMsg").innerText = "✅ Thank you! We will get back to you soon.";
+    }
+
+    function featureAction(type) {
+      scrollToSection('farmerInterface');
+      const outputBox = document.getElementById("outputBox");
+
+      if (type === 'advice') {
+        outputBox.innerText = "🌱 Localized Advice:\nBest Crop = Rice\nFertility Score = High\nRotation Suggestion = Pulses next season.";
+      }
+      else if (type === 'image') {
+        document.getElementById("imageInput").click();
+        outputBox.innerText = "📸 Please upload an image of your crop for analysis...";
+      }
+      else if (type === 'voice') {
+        outputBox.innerText = "🎤 Voice Input: (Future feature — connect mic API here)";
+      }
+      else if (type === 'market') {
+        outputBox.innerText = "📊 Market Insights:\nWheat ₹2100/qtl\nRice ₹2400/qtl\nMaize ₹1800/qtl";
+      }
+    }
+  </script>
+</body>
+</html>
