@@ -1,6 +1,6 @@
 # 🌾 Smart Agri Assistant
 
-Smart Agri Assistant is a web-based application designed to support farmers and agricultural enthusiasts by providing smart, easy-to-use digital assistance for better crop management and informed decision-making. The project focuses on improving agricultural productivity using technology in a simple and accessible way.
+Smart Agri Assistant is a web-based frontend application designed to support farmers and agricultural enthusiasts by providing smart, easy-to-use digital assistance for better crop management and informed decision-making. The project focuses on improving agricultural productivity using technology in a simple and accessible way.
 
 🔗 **Live Project:**  
 https://yesaswini19.github.io/Smart-Agri-Assistant/
