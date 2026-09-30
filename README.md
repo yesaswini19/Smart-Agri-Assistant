@@ -1,40 +1,67 @@
 # 🌾 Smart Agri Assistant
 
-Smart Agri Assistant is a web-based frontend application designed to support farmers and agricultural enthusiasts by providing smart, easy-to-use digital assistance for better crop management and informed decision-making. The project focuses on improving agricultural productivity using technology in a simple and accessible way.
+A responsive React application for farmer-focused agriculture guidance, built with Vite.
 
-🔗 **Live Project:**  
-https://yesaswini19.github.io/Smart-Agri-Assistant/
+🔗 **Live Project:** [https://yesaswini19.github.io/Smart-Agri-Assistant/](https://yesaswini19.github.io/Smart-Agri-Assistant/)
 
----
+## Features
 
-## 📌 Project Overview
+- Single-page navigation for the home, features, farmer query, and contact sections.
+- Sample crop recommendations in English, Telugu, and Hindi.
+- Localized advice and sample market insight actions.
+- Crop image file picker.
+- Contact form with browser validation and an on-page confirmation.
+- Responsive layout for mobile, tablet, and desktop.
 
-Agriculture plays a vital role in the economy, yet farmers often face challenges such as unpredictable weather, lack of timely information, and limited access to modern tools.  
-Smart Agri Assistant aims to bridge this gap by offering a user-friendly platform that delivers useful agricultural insights and guidance.
+## Technology
 
----
+- React 19
+- Vite 7
+- JavaScript and CSS
+- GitHub Pages deployment through GitHub Actions
 
-## ✨ Features
+## Getting Started
 
-- 🌱 **Crop Advisory Support**  
-  Provides helpful information related to crops and farming practices.
+### Requirements
 
-- 🌦️ **Weather Awareness**  
-  Helps farmers plan agricultural activities based on weather conditions.
+- Node.js 20.19+ or 22.12+.
+- npm, included with Node.js.
 
-- 📱 **Responsive Design**  
-  Works smoothly on desktops, tablets, and mobile devices.
+### Install and run locally
 
-- 🧑‍🌾 **User-Friendly Interface**  
-  Simple layout and easy navigation for all users, including non-technical farmers.
+```bash
+npm install
+npm run dev
+```
 
-- ⚡ **Fast and Lightweight**  
-  Built using basic web technologies for quick loading and smooth performance.
+### Production build
 
----
+```bash
+npm run build
+npm run preview
+```
 
-## 🛠️ Technologies Used
+The production build is generated in `dist/`.
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Hosting:** GitHub Pages  
-- **Design:** Responsive web design principles
+## Deployment
+
+Pushes to `main` trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`. In the repository settings, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The workflow then publishes the Vite build to the live project URL above.
+
+## Project Structure
+
+```text
+src/
+  components/   Reusable navigation, form, feature, and layout components
+  pages/        Page-level views
+  App.jsx       Application root
+  main.jsx      React entry point
+  index.css     Global and responsive styles
+index.html      Vite HTML entry point
+vite.config.js Vite configuration
+```
+
+## Prototype Scope
+
+Recommendations, weather, profit, and market values are sample text, not live data. Selecting an image opens the file picker but does not analyze the image. Voice input is a placeholder, and the contact form displays a local confirmation without sending the message to a service.
+
+There are no external API calls or environment variables to configure.
