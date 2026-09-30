@@ -18,7 +18,6 @@ A responsive React application for farmer-focused agriculture guidance, built wi
 - React 19
 - Vite 7
 - JavaScript and CSS
-- GitHub Pages deployment through GitHub Actions
 
 ## Getting Started
 
@@ -45,7 +44,7 @@ The production build is generated in `dist/`.
 
 ## Deployment
 
-Pushes to `main` trigger the GitHub Actions workflow in `.github/workflows/deploy.yml`. In the repository settings, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions**. The workflow then publishes the Vite build to the live project URL above.
+This React migration is on the `react-migration` branch and is not published. The existing live project remains unchanged at the URL above.
 
 ## Project Structure
 
