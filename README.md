@@ -1,40 +1,69 @@
 # 🌾 Smart Agri Assistant
 
-Smart Agri Assistant is a web-based frontend application designed to support farmers and agricultural enthusiasts by providing smart, easy-to-use digital assistance for better crop management and informed decision-making. The project focuses on improving agricultural productivity using technology in a simple and accessible way.
+A responsive React application for farmer-focused agriculture guidance, built with Vite.
 
-🔗 **Live Project:**  
-https://yesaswini19.github.io/Smart-Agri-Assistant/
+🔗 **Existing live version:** [https://yesaswini19.github.io/Smart-Agri-Assistant/](https://yesaswini19.github.io/Smart-Agri-Assistant/) (the previous deployment; this React branch is separate)
 
----
+## Features
 
-## 📌 Project Overview
+- Responsive single-page layout with home, features, farmer query, and contact sections.
+- Sample crop recommendation responses in English, Telugu, and Hindi.
+- Localized advice and market insight buttons that display sample results.
+- Crop image picker, currently used as a UI placeholder rather than an image analyzer.
+- Voice action placeholder for a future microphone integration.
+- Contact form with browser validation and an on-page confirmation.
+- Responsive layout for mobile, tablet, and desktop.
 
-Agriculture plays a vital role in the economy, yet farmers often face challenges such as unpredictable weather, lack of timely information, and limited access to modern tools.  
-Smart Agri Assistant aims to bridge this gap by offering a user-friendly platform that delivers useful agricultural insights and guidance.
+## Technology
 
----
+- React 19
+- Vite 7
+- JavaScript and CSS
 
-## ✨ Features
+## Getting Started
 
-- 🌱 **Crop Advisory Support**  
-  Provides helpful information related to crops and farming practices.
+### Requirements
 
-- 🌦️ **Weather Awareness**  
-  Helps farmers plan agricultural activities based on weather conditions.
+- Node.js 20.19+ or 22.12+.
+- npm, included with Node.js.
 
-- 📱 **Responsive Design**  
-  Works smoothly on desktops, tablets, and mobile devices.
+### Install and run locally
 
-- 🧑‍🌾 **User-Friendly Interface**  
-  Simple layout and easy navigation for all users, including non-technical farmers.
+```bash
+npm install
+npm run dev
+```
 
-- ⚡ **Fast and Lightweight**  
-  Built using basic web technologies for quick loading and smooth performance.
+### Production build
 
----
+```bash
+npm run build
+npm run preview
+```
 
-## 🛠️ Technologies Used
+The production build is generated in `dist/`.
 
-- **Frontend:** HTML, CSS, JavaScript  
-- **Hosting:** GitHub Pages  
-- **Design:** Responsive web design principles
+## Deployment
+
+This React app is configured for Vercel in `vercel.json`. Import the repository into Vercel and select the `react-migration` branch. Use the Vite framework preset, `npm run build` as the build command, and `dist` as the output directory. No environment variables are required.
+
+The existing GitHub Pages version above remains unchanged; this branch does not deploy to Pages.
+
+## Project Structure
+
+```text
+src/
+  components/     Navigation, hero, feature, farmer, contact, and footer UI
+  pages/           Page-level views
+  App.jsx          Application root
+  main.jsx         React entry point
+  index.css        Global and responsive styles
+index.html         Vite HTML entry point
+vite.config.js     Vite configuration
+```
+
+## Prototype Scope
+
+All recommendations, weather, profit, and market values are hard-coded sample text, not live data or personalized analysis. The image action opens a file picker, but selecting a file does not trigger image analysis. Voice input displays a placeholder message. The contact form validates fields in the browser and displays a local confirmation; it does not send the message to a service.
+
+The app makes no external API calls and requires no environment variables.
