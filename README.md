@@ -2,7 +2,7 @@
 
 A responsive React application for farmer-focused agriculture guidance, built with Vite.
 
-🔗 **Live Project:** [https://yesaswini19.github.io/Smart-Agri-Assistant/](https://yesaswini19.github.io/Smart-Agri-Assistant/)
+🔗 **Existing live version:** [https://yesaswini19.github.io/Smart-Agri-Assistant/](https://yesaswini19.github.io/Smart-Agri-Assistant/) (the previous deployment; this React branch is separate)
 
 ## Features
 
@@ -44,7 +44,9 @@ The production build is generated in `dist/`.
 
 ## Deployment
 
-This React migration is on the `react-migration` branch and is not published. The existing live project remains unchanged at the URL above.
+This React app is configured for Vercel in `vercel.json`. Import the repository into Vercel and select the `react-migration` branch. Use the Vite framework preset, `npm run build` as the build command, and `dist` as the output directory. No environment variables are required.
+
+The existing GitHub Pages version above remains unchanged; this branch does not deploy to Pages.
 
 ## Project Structure
 
